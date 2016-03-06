@@ -1,6 +1,8 @@
 import gulp from 'gulp';
 import path from 'path';
 import del from 'del';
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 import minifyCSS from 'gulp-minify-css';
 import { SOURCE, DESTINATION, STYLES } from './settings';
 
@@ -31,7 +33,6 @@ gulp.task('scripts', () => {
     .pipe(isProduction ? $.uglifyjs() : $.util.noop())
     .pipe(gulp.dest(`${DESTINATION}/js/`))
     .pipe($.size({ title : 'js' }))
-    .pipe($.connect.reload());
 });
 
 gulp.task('styles', () => {
@@ -68,10 +69,25 @@ gulp.task('static', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(`${SOURCE}/views/**/*.jade`, 'jade');
-  gulp.watch(`${SOURCE}/styles/**/**/*.scss`, 'styles');
-  gulp.watch(`${SOURCE}/scripts/**/*.js`, 'scripts');
+  gulp.watch(`${SOURCE}/views/**/*.jade`, ['jade']);
+  gulp.watch(`${SOURCE}/styles/**/**/*.scss`, ['styles']);
+  gulp.watch(`${SOURCE}/scripts/**/*.js`, ['scripts']);
 });
+
+gulp.task("serve", (callback) => {
+  // Start a webpack-dev-server
+  var compiler = webpack(webpackConfig);
+
+  new WebpackDevServer(compiler, {
+    contentBase: DESTINATION
+  }).listen(8080, "localhost", (err) => {
+    if(err) throw new gutil.PluginError("webpack-dev-server", err);
+    $.util.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+  });
+});
+
+gulp.task('build', ['static', 'styles', 'jade', 'scripts']);
+gulp.task('default', ['clean', 'build', 'watch', 'serve']);
 
 gulp.task('clean', (cb) => {
   del([DESTINATION], cb);
