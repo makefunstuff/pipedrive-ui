@@ -1,7 +1,8 @@
 import gulp from 'gulp';
 import path from 'path';
 import del from 'del';
-import { SOURCE, DESTINATION } from './settings';
+import minifyCSS from 'gulp-minify-css';
+import { SOURCE, DESTINATION, STYLES } from './settings';
 
 const $ = require('gulp-load-plugins')({
   pattern: '*'
@@ -32,6 +33,16 @@ gulp.task('scripts', () => {
     .pipe($.size({ title : 'js' }))
     .pipe($.connect.reload());
 });
+
+gulp.task('styles', () => {
+  return gulp.src(`${STYLES}/main.scss`)
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer())
+    .pipe($.rename('main.css'))
+    .pipe(minifyCSS({keepBreaks:true}) )
+    .pipe(gulp.dest(`${DESTINATION}/css`))
+})
 
 gulp.task('jade', () => {
 });
