@@ -4,6 +4,7 @@ import del from 'del';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import minifyCSS from 'gulp-minify-css';
+import gulpSequence from 'gulp-sequence';
 import { SOURCE, DESTINATION, STYLES } from './settings';
 
 const $ = require('gulp-load-plugins')({
@@ -42,6 +43,7 @@ gulp.task('styles', () => {
     .pipe($.autoprefixer())
     .pipe($.rename('main.css'))
     .pipe(minifyCSS({keepBreaks:true}) )
+    .pipe($.plumber.stop())
     .pipe(gulp.dest(`${DESTINATION}/css`))
 })
 
@@ -69,9 +71,9 @@ gulp.task('static', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(`${SOURCE}/views/**/*.jade`, ['jade']);
   gulp.watch(`${SOURCE}/styles/**/**/*.scss`, ['styles']);
   gulp.watch(`${SOURCE}/scripts/**/*.js`, ['scripts']);
+  gulp.watch(`${SOURCE}/views/**/*.jade`, ['jade']);
 });
 
 gulp.task("serve", (callback) => {
@@ -86,8 +88,8 @@ gulp.task("serve", (callback) => {
   });
 });
 
-gulp.task('build', ['static', 'styles', 'jade', 'scripts']);
-gulp.task('default', ['clean', 'build', 'watch', 'serve']);
+gulp.task('build', gulpSequence(['static', 'styles', 'jade', 'scripts']));
+gulp.task('default', ['build', 'watch', 'serve']);
 
 gulp.task('clean', (cb) => {
   del([DESTINATION], cb);
