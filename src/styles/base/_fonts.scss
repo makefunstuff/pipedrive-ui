@@ -1,3 +1,7 @@
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
+
+@include font-face("Pipedings", "../assets/fonts/Pipedings", bold, italic);
+@include font-face("Lucida Grande", "../assets/fonts/LucidaGrande.ttf", bold, italic);
+@include font-face("Museo", "../assets/fonts/Museo700-Regular.ttf", bold, italic);
