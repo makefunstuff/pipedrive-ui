@@ -68,6 +68,9 @@ gulp.task('static', () => {
 
   gulp.src(`${SOURCE}/svg/*.{eot,svg,ttf,woff}`)
     .pipe(gulp.dest(`${DESTINATION}/assets/svg`))
+
+  gulp.src(`${SOURCE}/favicon/*`)
+    .pipe(gulp.dest(DESTINATION))
 })
 
 gulp.task('watch', () => {
