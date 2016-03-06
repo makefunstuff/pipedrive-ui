@@ -53,23 +53,25 @@ gulp.task('jade', () => {
   .pipe(gulp.dest(`${DESTINATION}`))
 });
 
-
-gulp.task('images', () => {
-  return gulp.src(`${SOURCE}/*.{jpg,png}`)
+gulp.task('static', () => {
+  gulp.src(`${SOURCE}/images/*.{jpg,png}`)
     .pipe($.imagemin({
       progressive: true
     }))
     .pipe(gulp.dest(`${DESTINATION}/assets/images`))
-});
+
+  gulp.src(`${SOURCE}/fonts/*.{eot,svg,ttf,woff}`)
+    .pipe(gulp.dest(`${DESTINATION}/assets/fonts`))
+
+  gulp.src(`${SOURCE}/svg/*.{eot,svg,ttf,woff}`)
+    .pipe(gulp.dest(`${DESTINATION}/assets/svg`))
+})
 
 gulp.task('watch', () => {
   gulp.watch(`${SOURCE}/views/**/*.jade`, 'jade');
   gulp.watch(`${SOURCE}/styles/**/**/*.scss`, 'styles');
   gulp.watch(`${SOURCE}/scripts/**/*.js`, 'scripts');
 });
-
-gulp.task('assets', ['fonts', 'images']);
-
 
 gulp.task('clean', (cb) => {
   del([DESTINATION], cb);
