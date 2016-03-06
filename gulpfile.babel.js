@@ -29,7 +29,7 @@ gulp.task('scripts', () => {
   return gulp.src(webpackConfig.entry)
     .pipe($.webpackStream(webpackConfig))
     .pipe(isProduction ? $.uglifyjs() : $.util.noop())
-    .pipe(gulp.dest(dist + 'js/'))
+    .pipe(gulp.dest(`${DESTINATION}/js/`))
     .pipe($.size({ title : 'js' }))
     .pipe($.connect.reload());
 });
@@ -45,12 +45,32 @@ gulp.task('styles', () => {
 })
 
 gulp.task('jade', () => {
+  return gulp.src(`${SOURCE}/views/index.jade`)
+  .pipe($.plumber())
+  .pipe($.jade({
+    pretty: true,
+  }))
+  .pipe(gulp.dest(`${DESTINATION}`))
+});
+
+
+gulp.task('images', () => {
+  return gulp.src(`${SOURCE}/*.{jpg,png}`)
+    .pipe($.imagemin({
+      progressive: true
+    }))
+    .pipe(gulp.dest(`${DESTINATION}/assets/images`))
 });
 
 gulp.task('watch', () => {
+  gulp.watch(`${SOURCE}/views/**/*.jade`, 'jade');
+  gulp.watch(`${SOURCE}/styles/**/**/*.scss`, 'styles');
+  gulp.watch(`${SOURCE}/scripts/**/*.js`, 'scripts');
 });
+
+gulp.task('assets', ['fonts', 'images']);
 
 
 gulp.task('clean', (cb) => {
-  del([dist], cb);
+  del([DESTINATION], cb);
 });

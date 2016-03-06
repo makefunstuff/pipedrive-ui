@@ -27,7 +27,7 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               #e6e6e6 !default;
 //** Global text color on `<body>`.
 $text-color:            $gray-dark !default;
 
@@ -121,94 +121,8 @@ $caret-width-base:          4px !default;
 //** Carets increase slightly in size for larger components.
 $caret-width-large:         5px !default;
 
-
-//== Tables
-//
-//## Customizes the `.table` component with basic values, each used across all table variations.
-
-//** Padding for `<th>`s and `<td>`s.
-$table-cell-padding:            8px !default;
-//** Padding for cells in `.table-condensed`.
-$table-condensed-cell-padding:  5px !default;
-
-//** Default background color used for all tables.
-$table-bg:                      transparent !default;
-//** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
-//** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
-$table-bg-active:               $table-bg-hover !default;
-
-//** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
-
-
-//== Buttons
-//
-//## For each of Bootstrap's buttons, define text, background and border color.
-
-$btn-font-weight:                normal !default;
-
-$btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;
-
-$btn-primary-color:              #fff !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
-
-$btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-border:             darken($btn-success-bg, 5%) !default;
-
-$btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                darken($btn-info-bg, 5%) !default;
-
-$btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
-
-$btn-danger-color:               #fff !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
-
-$btn-link-disabled-color:        $gray-light !default;
-
-// Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:         $border-radius-base !default;
-$btn-border-radius-large:        $border-radius-large !default;
-$btn-border-radius-small:        $border-radius-small !default;
-
-
-//== Forms
-//
-//##
-
-//** `<input>` background color
-$input-bg:                       #fff !default;
-//** `<input disabled>` background color
-$input-bg-disabled:              $gray-lighter !default;
-
-//** Text color for `<input>`s
-$input-color:                    $gray !default;
-//** `<input>` border color
-$input-border:                   #ccc !default;
-
-// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
-//** Default `.form-control` border radius
-// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-$input-border-radius:            $border-radius-base !default;
-//** Large `.form-control` border radius
-$input-border-radius-large:      $border-radius-large !default;
-//** Small `.form-control` border radius
-$input-border-radius-small:      $border-radius-small !default;
-
-//** Border color for inputs on focus
-$input-border-focus:             #66afe9 !default;
-
-//** Placeholder text color
-$input-color-placeholder:        #999 !default;
+//** Disabled cursor for form controls and buttons.
+$cursor-disabled:                not-allowed !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -217,20 +131,8 @@ $input-height-large:             (ceil($font-size-large * $line-height-large) + 
 //** Small `.form-control` height
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
-//** `.form-group` margin
-$form-group-margin-bottom:       15px !default;
-
-$legend-color:                   $gray-dark !default;
-$legend-border-color:            #e5e5e5 !default;
-
-//** Background color for textual input addons
-$input-group-addon-bg:           $gray-lighter !default;
-//** Border color for textual input addons
-$input-group-addon-border-color: $input-border !default;
-
-//** Disabled cursor for form controls and buttons.
-$cursor-disabled:                not-allowed !default;
-
+//** Border color for table and cell borders.
+$table-border-color:            #ddd !default;
 
 //== Dropdowns
 //
@@ -447,56 +349,6 @@ $nav-pills-border-radius:                   $border-radius-base !default;
 $nav-pills-active-link-hover-bg:            $component-active-bg !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
-
-//== Pagination
-//
-//##
-
-$pagination-color:                     $link-color !default;
-$pagination-bg:                        #fff !default;
-$pagination-border:                    #ddd !default;
-
-$pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray-lighter !default;
-$pagination-hover-border:              #ddd !default;
-
-$pagination-active-color:              #fff !default;
-$pagination-active-bg:                 $brand-primary !default;
-$pagination-active-border:             $brand-primary !default;
-
-$pagination-disabled-color:            $gray-light !default;
-$pagination-disabled-bg:               #fff !default;
-$pagination-disabled-border:           #ddd !default;
-
-
-//== Pager
-//
-//##
-
-$pager-bg:                             $pagination-bg !default;
-$pager-border:                         $pagination-border !default;
-$pager-border-radius:                  15px !default;
-
-$pager-hover-bg:                       $pagination-hover-bg !default;
-
-$pager-active-bg:                      $pagination-active-bg !default;
-$pager-active-color:                   $pagination-active-color !default;
-
-$pager-disabled-color:                 $pagination-disabled-color !default;
-
-
-//== Jumbotron
-//
-//##
-
-$jumbotron-padding:              30px !default;
-$jumbotron-color:                inherit !default;
-$jumbotron-bg:                   $gray-lighter !default;
-$jumbotron-heading-color:        inherit !default;
-$jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
-$jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
-
-
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
@@ -516,157 +368,6 @@ $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) 
 $state-danger-text:              #a94442 !default;
 $state-danger-bg:                #f2dede !default;
 $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
-
-
-//== Tooltips
-//
-//##
-
-//** Tooltip max width
-$tooltip-max-width:           200px !default;
-//** Tooltip text color
-$tooltip-color:               #fff !default;
-//** Tooltip background color
-$tooltip-bg:                  #000 !default;
-$tooltip-opacity:             .9 !default;
-
-//** Tooltip arrow width
-$tooltip-arrow-width:         5px !default;
-//** Tooltip arrow color
-$tooltip-arrow-color:         $tooltip-bg !default;
-
-
-//== Popovers
-//
-//##
-
-//** Popover body background color
-$popover-bg:                          #fff !default;
-//** Popover maximum width
-$popover-max-width:                   276px !default;
-//** Popover border color
-$popover-border-color:                rgba(0,0,0,.2) !default;
-//** Popover fallback border color
-$popover-fallback-border-color:       #ccc !default;
-
-//** Popover title background color
-$popover-title-bg:                    darken($popover-bg, 3%) !default;
-
-//** Popover arrow width
-$popover-arrow-width:                 10px !default;
-//** Popover arrow color
-$popover-arrow-color:                 $popover-bg !default;
-
-//** Popover outer arrow width
-$popover-arrow-outer-width:           ($popover-arrow-width + 1) !default;
-//** Popover outer arrow color
-$popover-arrow-outer-color:           fade_in($popover-border-color, 0.05) !default;
-//** Popover outer arrow fallback color
-$popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%) !default;
-
-
-//== Labels
-//
-//##
-
-//** Default label background color
-$label-default-bg:            $gray-light !default;
-//** Primary label background color
-$label-primary-bg:            $brand-primary !default;
-//** Success label background color
-$label-success-bg:            $brand-success !default;
-//** Info label background color
-$label-info-bg:               $brand-info !default;
-//** Warning label background color
-$label-warning-bg:            $brand-warning !default;
-//** Danger label background color
-$label-danger-bg:             $brand-danger !default;
-
-//** Default label text color
-$label-color:                 #fff !default;
-//** Default text color of a linked label
-$label-link-hover-color:      #fff !default;
-
-
-//== Modals
-//
-//##
-
-//** Padding applied to the modal body
-$modal-inner-padding:         15px !default;
-
-//** Padding applied to the modal title
-$modal-title-padding:         15px !default;
-//** Modal title line-height
-$modal-title-line-height:     $line-height-base !default;
-
-//** Background color of modal content area
-$modal-content-bg:                             #fff !default;
-//** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2) !default;
-//** Modal content border color **for IE8**
-$modal-content-fallback-border-color:          #999 !default;
-
-//** Modal backdrop background color
-$modal-backdrop-bg:           #000 !default;
-//** Modal backdrop opacity
-$modal-backdrop-opacity:      .5 !default;
-//** Modal header border color
-$modal-header-border-color:   #e5e5e5 !default;
-//** Modal footer border color
-$modal-footer-border-color:   $modal-header-border-color !default;
-
-$modal-lg:                    900px !default;
-$modal-md:                    600px !default;
-$modal-sm:                    300px !default;
-
-
-//== Alerts
-//
-//## Define alert colors, border radius, and padding.
-
-$alert-padding:               15px !default;
-$alert-border-radius:         $border-radius-base !default;
-$alert-link-font-weight:      bold !default;
-
-$alert-success-bg:            $state-success-bg !default;
-$alert-success-text:          $state-success-text !default;
-$alert-success-border:        $state-success-border !default;
-
-$alert-info-bg:               $state-info-bg !default;
-$alert-info-text:             $state-info-text !default;
-$alert-info-border:           $state-info-border !default;
-
-$alert-warning-bg:            $state-warning-bg !default;
-$alert-warning-text:          $state-warning-text !default;
-$alert-warning-border:        $state-warning-border !default;
-
-$alert-danger-bg:             $state-danger-bg !default;
-$alert-danger-text:           $state-danger-text !default;
-$alert-danger-border:         $state-danger-border !default;
-
-
-//== Progress bars
-//
-//##
-
-//** Background color of the whole progress component
-$progress-bg:                 #f5f5f5 !default;
-//** Progress bar text color
-$progress-bar-color:          #fff !default;
-//** Variable for setting rounded corners on progress bar.
-$progress-border-radius:      $border-radius-base !default;
-
-//** Default progress bar color
-$progress-bar-bg:             $brand-primary !default;
-//** Success progress bar color
-$progress-bar-success-bg:     $brand-success !default;
-//** Warning progress bar color
-$progress-bar-warning-bg:     $brand-warning !default;
-//** Danger progress bar color
-$progress-bar-danger-bg:      $brand-danger !default;
-//** Info progress bar color
-$progress-bar-info-bg:        $brand-info !default;
 
 
 //== List group
@@ -741,7 +442,6 @@ $panel-danger-text:           $state-danger-text !default;
 $panel-danger-border:         $state-danger-border !default;
 $panel-danger-heading-bg:     $state-danger-bg !default;
 
-
 //== Thumbnails
 //
 //##
@@ -759,7 +459,6 @@ $thumbnail-border-radius:     $border-radius-base !default;
 $thumbnail-caption-color:     $text-color !default;
 //** Padding around the thumbnail caption
 $thumbnail-caption-padding:   9px !default;
-
 
 //== Wells
 //
@@ -788,39 +487,6 @@ $badge-line-height:           1 !default;
 $badge-border-radius:         10px !default;
 
 
-//== Breadcrumbs
-//
-//##
-
-$breadcrumb-padding-vertical:   8px !default;
-$breadcrumb-padding-horizontal: 15px !default;
-//** Breadcrumb background color
-$breadcrumb-bg:                 #f5f5f5 !default;
-//** Breadcrumb text color
-$breadcrumb-color:              #ccc !default;
-//** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $gray-light !default;
-//** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          "/" !default;
-
-
-//== Carousel
-//
-//##
-
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
-
-$carousel-control-color:                      #fff !default;
-$carousel-control-width:                      15% !default;
-$carousel-control-opacity:                    .5 !default;
-$carousel-control-font-size:                  20px !default;
-
-$carousel-indicator-active-bg:                #fff !default;
-$carousel-indicator-border-color:             #fff !default;
-
-$carousel-caption-color:                      #fff !default;
-
-
 //== Close
 //
 //##
@@ -828,23 +494,6 @@ $carousel-caption-color:                      #fff !default;
 $close-font-weight:           bold !default;
 $close-color:                 #000 !default;
 $close-text-shadow:           0 1px 0 #fff !default;
-
-
-//== Code
-//
-//##
-
-$code-color:                  #c7254e !default;
-$code-bg:                     #f9f2f4 !default;
-
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
-
-$pre-bg:                      #f5f5f5 !default;
-$pre-color:                   $gray-dark !default;
-$pre-border-color:            #ccc !default;
-$pre-scrollable-max-height:   340px !default;
-
 
 //== Type
 //
