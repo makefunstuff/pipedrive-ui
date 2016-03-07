@@ -57,7 +57,7 @@ gulp.task('jade', () => {
 });
 
 gulp.task('static', () => {
-  gulp.src(`${SOURCE}/images/*.{jpg,png}`)
+  gulp.src(`${SOURCE}/images/*.{jpg,png,gif}`)
     .pipe($.imagemin({
       progressive: true
     }))

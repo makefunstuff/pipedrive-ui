@@ -1,3 +1,8 @@
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the header of the site/application.
-// -----------------------------------------------------------------------------
+.badge {
+  &.activities-count {
+    background-color: $brand-danger;
+    position: absolute;
+    top: 8px;
+    left: 28px;
+  }
+}

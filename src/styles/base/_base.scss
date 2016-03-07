@@ -31,6 +31,15 @@ body {
   color: $text-color;
   background-color: $body-bg;
   padding-top: 70px;
+  background: $body-bg url('../assets/images/body-logo.png') no-repeat 60% 400px;
+  background-size: 250px;
+
+  &.loading {
+    background: url('../assets/images/body-logo.png'), url('../assets/images/ajax-loader-horizontal-bar.gif'), $body-bg;
+    background-size: 250px, 150px;
+    background-position: center 250px, center 580px;
+    background-repeat: no-repeat;
+  }
 }
 
 // Reset fonts for relevant elements

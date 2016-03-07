@@ -9,7 +9,7 @@ $bootstrap-sass-asset-helper: false !default;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base:              #fafafa !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-darker:            #525252;
 $gray-dark:              #717171;
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             #d6d6d6;
@@ -469,7 +469,7 @@ $badge-active-bg:             #fff !default;
 
 $badge-font-weight:           bold !default;
 $badge-line-height:           1 !default;
-$badge-border-radius:         10px !default;
+$badge-border-radius:         2px !default;
 
 
 //== Close

@@ -2,17 +2,17 @@ doctype html
 html(lang='en')
   head
     include ./head
-  body
+  body.loading
     include ./mixins
     block header
       include ./header
     #page.container-fluid
       .row
-        .col-md-3.sidebar
+        .col-md-3.sidebar.hidden
           aside#aside
             block aside
         .col-md-8        
-          #main
+          #main.hidden
             block main
         
   block script      

@@ -1,3 +1,4 @@
+'use strict';
 import $ from 'jquery';
 import Backbone from 'backbone';
 
@@ -8,7 +9,12 @@ export default Backbone.Router.extend({
   },
 
   initialize() {
-    $('body').append('<div id="app"></div>');
+    //NOTE: temporary emulate loading
+    //TODO: fetch data here, on success
+    setTimeout(function() {
+      $('body').removeClass('loading');
+      $('.hidden:not(.badge)').removeClass('hidden');
+    }, 1000);
   },
 
   dashboard() {

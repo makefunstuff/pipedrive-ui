@@ -1,7 +1,11 @@
 //
 // Panels
 // --------------------------------------------------
+$panel-heading-gradient-top: #fefefe;
+$panel-heading-gradient-bottom: #f0f0f0;
 
+$panel-footer-gradient-top: #f3f3f3;
+$panel-footer-gradient-bottom: #ebebeb;
 
 // Base class
 .panel {
@@ -23,6 +27,7 @@
   padding: $panel-heading-padding;
   border-bottom: 1px solid transparent;
   @include border-top-radius(($panel-border-radius - 1));
+  @include gradient-vertical($panel-heading-gradient-top, $panel-heading-gradient-bottom);
 
   > .dropdown .dropdown-toggle {
     color: inherit;
@@ -51,6 +56,7 @@
   background-color: $panel-footer-bg;
   border-top: 1px solid $panel-inner-border;
   @include border-bottom-radius(($panel-border-radius - 1));
+  @include gradient-vertical($panel-footer-gradient-top, $panel-footer-gradient-bottom);
 }
 
 

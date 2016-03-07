@@ -29,15 +29,13 @@ $user-link-border: 1px solid $gray-light;
     @include gradient-vertical($user-link-gradient-start, $user-link-gradient-end);
     border-bottom: $user-link-border;
 
-
-
     a {
       color: $dark;
       &:hover {
         background: none;
         color: $link-color;
 
-        .text-muted {
+        .small {
           color: inherit;
         }
       }
@@ -45,7 +43,12 @@ $user-link-border: 1px solid $gray-light;
 
     &:hover,
     &.active {
+      a, .small { color: $link-color; }
       @include gradient-vertical($user-link-gradient-active-start, $user-link-gradient-active-end);
     }
   }
+}
+
+.panel-default {
+  .item { color: $gray-darker; }
 }
