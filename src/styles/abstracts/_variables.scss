@@ -10,10 +10,12 @@ $bootstrap-sass-asset-helper: false !default;
 
 $gray-base:              #fafafa !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray-dark:              #717171;
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-light:             #d6d6d6;
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$dark: #000000;
 
 $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
 $brand-success:         #5cb85c !default;
@@ -29,12 +31,12 @@ $brand-danger:          #d9534f !default;
 //** Background color for `<body>`.
 $body-bg:               #e6e6e6 !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            $dark !default;
 
 //** Global textual link color.
-$link-color:            $gray-base !default;
+$link-color:            $gray !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 5%) !default;
+$link-hover-color:      darken($link-color, 10%) !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
 
@@ -66,10 +68,10 @@ $line-height-base:        1.428571429 !default; // 20/14
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    inherit !default;
+$headings-font-family:    $font-family-serif !default;
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
-$headings-color:          inherit !default;
+$headings-color:          $dark !default;
 
 //== Components
 //
@@ -401,7 +403,7 @@ $panel-border-radius:         $border-radius-base !default;
 $panel-inner-border:          #ddd !default;
 $panel-footer-bg:             #f5f5f5 !default;
 
-$panel-default-text:          $gray-dark !default;
+$panel-default-text:          $dark !default;
 $panel-default-border:        #ddd !default;
 $panel-default-heading-bg:    #f5f5f5 !default;
 
@@ -483,9 +485,9 @@ $close-text-shadow:           0 1px 0 #fff !default;
 //##
 
 //** Horizontal offset for forms and lists.
-$component-offset-horizontal: 180px !default;
+$component-offset-horizontal: 16px !default;
 //** Text muted color
-$text-muted:                  $gray-light !default;
+$text-muted:                  $gray-dark !default;
 //** Abbreviations and acronyms border color
 $abbr-border-color:           $gray-light !default;
 //** Headings small color

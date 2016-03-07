@@ -6,11 +6,14 @@ html(lang='en')
     include ./mixins
     block header
       include ./header
-    #page.container
-      block aside
-        aside#aside
-      block main
-        #main    
+    #page.container-fluid
+      .row
+        .col-md-3.sidebar
+          aside#aside
+            block aside
+        .col-md-8        
+          #main
+            block main
         
   block script      
     script(type="text/javascript" src='js/main.js')

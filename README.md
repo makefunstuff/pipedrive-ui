@@ -8,3 +8,14 @@
 * sass with small subset of bootstrap component styles
 * backbone.js and jquery as it was required in test task
 * gulp and webpack to "automate all the things"
+
+
+
+### TODO
+
+* Finish layout
+* Add background image
+* refactor css
+* extract javascript templates
+* add backbone collections to fetch data
+* provide default state when nothing chosen

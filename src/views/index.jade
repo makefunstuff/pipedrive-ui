@@ -1,3 +1,55 @@
 extends ./layout/application
 
-block 
+block aside
+  ul.nav.nav-sidebar
+    li.user-link
+      a(href='#')
+        strong Jürgen Mürgen
+        br
+        i.small.text-muted Kogrepüüdjad
+        
+    li.user-link
+      a(href='#')
+        strong K. La Meés
+        br
+        i.small.text-muted Kogrepüüdjad
+        
+    li.user-link
+      a(href='#')
+        strong Marten Meelitaja
+block main
+  .col-md-offset-5
+    .row
+      .col-md-10
+        h3 Henrius Maximus
+      .col-md-2
+        h4 Deals  
+  .col-md-offset-5.col-md-12
+    .row  
+      .panel.panel-default
+        .panel-body
+          .col-md-6
+            dl.dl-horizontal
+              dt Phone
+              dd +2 452 9403 9545
+              dt E-mail
+              dd henrius@maxim.us
+              dt Added
+              dd January 7, 2013
+              dt Open deals
+              dd 2
+              dt Next activity
+              dd Call, tomorrow 14:30
+              dt Last activity
+              dd Meeting, 2 months ago
+          .col-md-6
+            .panel.panel-default.clearfix
+              .panel-heading
+                .row
+                  .col-md-8 Title
+                  .col-md-4 Sum
+              .panel-body
+                .row
+                  .col-md-8 Limpa muud joogid
+                  .col-md-4 250 $
+      

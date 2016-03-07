@@ -1,3 +1,51 @@
-// -----------------------------------------------------------------------------
-// This file contains styles that are specific to the home page.
-// -----------------------------------------------------------------------------
+$user-link-gradient-start: #ffffff;
+$user-link-gradient-end: #f6f6f6;
+$user-link-gradient-active-start: #4ca4dd;
+$user-link-gradient-active-end: #287ac4;
+$user-link-border: 1px solid $gray-light;
+
+.sidebar {
+  color: $text-color;
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-right: 1px solid #b4b4b4;
+  box-shadow: 1px 0 1px rgba(0,0,0,.1);
+
+  .nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  .user-link {
+    @include gradient-vertical($user-link-gradient-start, $user-link-gradient-end);
+    border-bottom: $user-link-border;
+
+
+
+    a {
+      color: $dark;
+      &:hover {
+        background: none;
+        color: $link-color;
+
+        .text-muted {
+          color: inherit;
+        }
+      }
+    }
+
+    &:hover,
+    &.active {
+      @include gradient-vertical($user-link-gradient-active-start, $user-link-gradient-active-end);
+    }
+  }
+}
