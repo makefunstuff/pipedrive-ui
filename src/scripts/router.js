@@ -1,6 +1,10 @@
 'use strict';
 import $ from 'jquery';
 import Backbone from 'backbone';
+import { getActivityCount } from './utils/api';
+import Persons from './collections/persons';
+import { PIPEDRIVE_API_TOKEN } from '../../settings';
+import Person from './models/person';
 
 export default Backbone.Router.extend({
   routes: {
@@ -9,16 +13,22 @@ export default Backbone.Router.extend({
   },
 
   initialize() {
-    //NOTE: temporary emulate loading
-    //TODO: fetch data here, on success
-    // setTimeout(function() {
-    //   $('body').removeClass('loading');
-    //   $('.hidden:not(.badge)').removeClass('hidden');
-    // }, 1000000);
+  getActivityCount()
+    .then((data) => {
+      var $badge = $('.activities-count');
+      $badge.removeClass('hidden')
+      .html(data)
+
+      $('body').removeClass('loading');
+      $('.hidden:not(.badge)').removeClass('hidden');
+    })
   },
 
   dashboard() {
-
+    this.persons = new Persons();
+    this.person = new Person({id: 1});
+    this.persons.fetch({data: $.param({api_token: PIPEDRIVE_API_TOKEN})})
+    this.person.fetch({data: $.param({api_token: PIPEDRIVE_API_TOKEN})})
   },
 
   profile(id) {
