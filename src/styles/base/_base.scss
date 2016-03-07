@@ -1,7 +1,7 @@
 //
 // Scaffolding
 // --------------------------------------------------
-
+$backgrounds-base: url('../assets/images/body-logo.png'), url('../assets/images/bg-pattern.png');
 
 // Reset the box-sizing
 //
@@ -31,7 +31,9 @@ body {
   color: $text-color;
   background-color: $body-bg;
   padding-top: 70px;
-  background: $body-bg url('../assets/images/body-logo.png') no-repeat 60% 400px;
+  background: $body-bg $backgrounds-base;
+  background-position: 60% 400px, top left;
+  background-repeat: no-repeat, repeat;
   background-size: 250px;
 
   &.loading {

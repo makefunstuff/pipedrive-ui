@@ -11,10 +11,10 @@ export default Backbone.Router.extend({
   initialize() {
     //NOTE: temporary emulate loading
     //TODO: fetch data here, on success
-    setTimeout(function() {
-      $('body').removeClass('loading');
-      $('.hidden:not(.badge)').removeClass('hidden');
-    }, 1000);
+    // setTimeout(function() {
+    //   $('body').removeClass('loading');
+    //   $('.hidden:not(.badge)').removeClass('hidden');
+    // }, 1000000);
   },
 
   dashboard() {

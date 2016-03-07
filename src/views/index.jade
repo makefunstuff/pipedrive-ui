@@ -64,3 +64,46 @@ block main
                   .col-md-4
                     span.text-muted 1,200 $  
       
+append script
+  script(type="text/template" id="profile_link_template")
+    li.user-link
+      a(href='#')
+        strong <%= name %>
+        br
+        i.small.text-muted <%= company %>
+  script(type="text/template" id="details_template")
+    .col-md-6
+      dl.dl-horizontal
+        dt Phone
+        dd <%= phone %>
+        dt E-mail
+        dd <%= email %>
+        dt Added
+        dd <%= added %>
+        dt Open deals
+        dd <%= openDeals %>
+        dt Next activity
+        dd <%= nextActivity %>
+        dt Last activity
+        dd <%= lastActivity %>
+    .col-md-6
+      .panel.panel-default.clearfix
+        .panel-heading
+          .row
+            .col-md-8.item 
+              strong Title
+            .col-md-4.item
+              strong Sum
+        .panel-body.smallest-deal
+          .row
+            .col-md-8
+              span.text-muted <%= name %>
+            .col-md-4
+              span.text-muted <%= price %>
+          .row
+        .panel-footer.largest-deal
+          .row
+            .col-md-8
+              span.text-muted <%= name %>
+            .col-md-4
+              span.text-muted <%= price %>
