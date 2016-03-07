@@ -1,108 +1,62 @@
 extends ./layout/application
 
 block aside
-  ul.nav.nav-sidebar
-    li.user-link
-      a(href='#')
-        strong Jürgen Mürgen
-        br
-        i.small.text-muted Kogrepüüdjad
-        
-    li.user-link
-      a(href='#')
-        strong K. La Meés
-        br
-        i.small.text-muted Kogrepüüdjad
-        
-    li.user-link
-      a(href='#')
-        strong Marten Meelitaja
+  ul.nav.nav-sidebar#persons_container
+    .text-center Loading...
 block main
-  .col-md-offset-5
-    .row
-      .col-md-10
-        h3 Henrius Maximus
-      .col-md-2
-        h4 Deals  
-  .col-md-offset-5.col-md-12
-    .row  
-      .panel.panel-default
-        .panel-body
-          .col-md-6
-            dl.dl-horizontal
-              dt Phone
-              dd +2 452 9403 9545
-              dt E-mail
-              dd henrius@maxim.us
-              dt Added
-              dd January 7, 2013
-              dt Open deals
-              dd 2
-              dt Next activity
-              dd Call, tomorrow 14:30
-              dt Last activity
-              dd Meeting, 2 months ago
-          .col-md-6
-            .panel.panel-default.clearfix
-              .panel-heading
-                .row
-                  .col-md-8.item 
-                    strong Title
-                  .col-md-4.item
-                    strong Sum
-              .panel-body.smallest-deal
-                .row
-                  .col-md-8
-                    span.text-muted Limpa muud joogid
-                  .col-md-4
-                    span.text-muted 250 $
-                .row
-              .panel-footer.largest-deal
-                .row
-                  .col-md-8
-                    span.text-muted Limpa deal
-                  .col-md-4
-                    span.text-muted 1,200 $  
+  #person_details_container
+    .col-md-offset-5
+     | No person chosen
       
 append script
   script(type="text/template" id="person_view_template")
     a(href='#')
-      strong <%= name %>
+      strong ${ name }
       br
-      i.small.text-muted <%= company %>
-  script(type="text/template" id="details_template")
-    .col-md-6
-      dl.dl-horizontal
-        dt Phone
-        dd <%= phone %>
-        dt E-mail
-        dd <%= email %>
-        dt Added
-        dd <%= added %>
-        dt Open deals
-        dd <%= openDeals %>
-        dt Next activity
-        dd <%= nextActivity %>
-        dt Last activity
-        dd <%= lastActivity %>
-    .col-md-6
-      .panel.panel-default.clearfix
-        .panel-heading
-          .row
-            .col-md-8.item 
-              strong Title
-            .col-md-4.item
-              strong Sum
-        .panel-body.smallest-deal
-          .row
-            .col-md-8
-              span.text-muted <%= name %>
-            .col-md-4
-              span.text-muted <%= price %>
-          .row
-        .panel-footer.largest-deal
-          .row
-            .col-md-8
-              span.text-muted <%= name %>
-            .col-md-4
-              span.text-muted <%= price %>
+      i.small.text-muted ${ org_name }
+  script(type="text/template" id="person_details_template")
+    .col-md-offset-5.col-md-12
+      .row
+        .col-md-6
+          h3 ${ name }
+        .col-md-2
+          h4 Deals  
+    .col-md-offset-5.col-md-12
+      .row
+        .panel.panel-default
+          .panel-body
+            .col-md-6
+              dl.dl-horizontal
+                dt Phone
+                dd +2 452 9403 9545
+                dt E-mail
+                dd henrius@maxim.us
+                dt Added
+                dd January 7, 2013
+                dt Open deals
+                dd 2
+                dt Next activity
+                dd Call, tomorrow 14:30
+                dt Last activity
+                dd Meeting, 2 months ago
+            .col-md-6
+              .panel.panel-default.clearfix
+                .panel-heading
+                  .row
+                    .col-md-8.item 
+                      strong Title
+                    .col-md-4.item
+                      strong Sum
+                .panel-body.smallest-deal
+                  .row
+                    .col-md-8
+                      span.text-muted Limpa muud joogid
+                    .col-md-4
+                      span.text-muted 250 $
+                  .row
+                .panel-footer.largest-deal
+                  .row
+                    .col-md-8
+                      span.text-muted Limpa deal
+                    .col-md-4
+                      span.text-muted 1,200 $

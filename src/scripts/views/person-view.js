@@ -6,20 +6,25 @@ import { props } from '../utils/decorators';
 @props({
   tagName: 'li',
   className: 'user-link',
-  template: _.template($('#person_view_template').html()),
   events: {
     'click': 'onClick'
   }
-}
+})
 class PersonView extends Backbone.View {
+  constructor(options) {
+    super(options)
+    this.template = _.template($('#person_view_template').html())
+  }
+
   render() {
-    this.$el.html(this.template(this.model.toJSON()));
+    const compiled = this.template(this.model.toJSON())
+    this.$el.html(compiled);
     return this;
   }
 
   onClick(e) {
     e.preventDefault();
-    this.router.navigate(this.model.get('id'), {replace: true});
+    Backbone.history.navigate(`persons/${this.model.get('id')}`, {trigger: true, replace: true});
   }
 }
 

@@ -43,7 +43,10 @@ $user-link-border: 1px solid $gray-light;
 
     &:hover,
     &.active {
-      a, .small { color: $link-color; }
+      a, .small {
+        color: $link-color;
+        @include gradient-vertical($user-link-gradient-active-start, $user-link-gradient-active-end);
+      }
       @include gradient-vertical($user-link-gradient-active-start, $user-link-gradient-active-end);
     }
   }

@@ -11,6 +11,10 @@ class Persons extends Backbone.Collection {
     this.model = Person;
   }
 
+  parse(response) {
+    return response.data;
+  }
+
   url() {
     return `${API_ROOT}/persons/?api_token=${PIPEDRIVE_API_TOKEN}`
   }

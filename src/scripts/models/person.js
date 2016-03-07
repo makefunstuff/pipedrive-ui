@@ -11,9 +11,14 @@ class Person extends Backbone.Model {
     this.urlRoot = `${API_ROOT}/persons/`;
   }
 
+  parse(response) {
+    return response.data;
+  }
+
   url() {
     return `${this.urlRoot}${this.id}?api_token=${PIPEDRIVE_API_TOKEN}`;
   }
+
 }
 
 
