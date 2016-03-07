@@ -84,7 +84,8 @@ gulp.task("serve", (callback) => {
   var compiler = webpack(webpackConfig);
 
   new WebpackDevServer(compiler, {
-    contentBase: DESTINATION
+    contentBase: DESTINATION,
+    historyApiFallback: true
   }).listen(8080, "localhost", (err) => {
     if(err) throw new gutil.PluginError("webpack-dev-server", err);
     $.util.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");

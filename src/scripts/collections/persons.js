@@ -8,8 +8,11 @@ import Person from '../models/person';
 class Persons extends Backbone.Collection {
   constructor(options) {
     super(options);
-    this.url = `${API_ROOT}/persons`;
     this.model = Person;
+  }
+
+  url() {
+    return `${API_ROOT}/persons/?api_token=${PIPEDRIVE_API_TOKEN}`
   }
 }
 

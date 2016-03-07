@@ -9,7 +9,7 @@ import Person from './models/person';
 export default Backbone.Router.extend({
   routes: {
     '': 'dashboard',
-    'profile/:id': 'profile'
+    'persons/:id': 'person'
   },
 
   initialize() {
@@ -26,13 +26,11 @@ export default Backbone.Router.extend({
 
   dashboard() {
     this.persons = new Persons();
-    this.person = new Person({id: 1});
-    this.persons.fetch({data: $.param({api_token: PIPEDRIVE_API_TOKEN})})
-    this.person.fetch({data: $.param({api_token: PIPEDRIVE_API_TOKEN})})
   },
 
-  profile(id) {
-
+  person(id) {
+    this.person = new Person({id: id});
+    this.person.fetch();
   },
 
   loadView(view) {

@@ -65,12 +65,11 @@ block main
                     span.text-muted 1,200 $  
       
 append script
-  script(type="text/template" id="profile_link_template")
-    li.user-link
-      a(href='#')
-        strong <%= name %>
-        br
-        i.small.text-muted <%= company %>
+  script(type="text/template" id="person_view_template")
+    a(href='#')
+      strong <%= name %>
+      br
+      i.small.text-muted <%= company %>
   script(type="text/template" id="details_template")
     .col-md-6
       dl.dl-horizontal
