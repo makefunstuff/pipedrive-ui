@@ -11,6 +11,16 @@ export function getActivityCount() {
       return data.data.length
     })
     .fail((error) => {
-      console.error('[APPLICATION ERROR]: can\'t fetch activities')
+      console.error('[APPLICATION ERROR]: can\'t fetch activities');
     })
+}
+
+export function getDealsByPerson(id) {
+  const dealsEndpoint = `${API_ROOT}/persons/${id}/deals?start=0status=&api_token=${PIPEDRIVE_API_TOKEN}`;
+  return $.getJSON(dealsEndpoint);
+}
+
+export function getActivity(id) {
+  const activityEndpoint = `${API_ROOT}/activities/${id}?api_token=${PIPEDRIVE_API_TOKEN}`;
+  return $.getJSON(activityEndpoint);
 }

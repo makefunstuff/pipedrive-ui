@@ -28,17 +28,17 @@ append script
             .col-md-6
               dl.dl-horizontal
                 dt Phone
-                dd +2 452 9403 9545
+                dd ${ phone }
                 dt E-mail
-                dd henrius@maxim.us
+                dd ${ email }
                 dt Added
-                dd January 7, 2013
+                dd ${ added }
                 dt Open deals
-                dd 2
+                dd ${ dealsCount }
                 dt Next activity
-                dd Call, tomorrow 14:30
+                dd ${ nextActivity }
                 dt Last activity
-                dd Meeting, 2 months ago
+                dd ${ lastActivity }
             .col-md-6
               .panel.panel-default.clearfix
                 .panel-heading
@@ -50,13 +50,13 @@ append script
                 .panel-body.smallest-deal
                   .row
                     .col-md-8
-                      span.text-muted Limpa muud joogid
+                      span.text-muted ${ smallestDeal.name }
                     .col-md-4
-                      span.text-muted 250 $
+                      span.text-muted ${ smallestDeal.value }
                   .row
                 .panel-footer.largest-deal
                   .row
                     .col-md-8
-                      span.text-muted Limpa deal
+                      span.text-muted ${ largestDeal.name }
                     .col-md-4
-                      span.text-muted 1,200 $
+                      span.text-muted ${ largestDeal.value }

@@ -25,5 +25,6 @@
 * progress 90% done
 
 ### TODO
-- [ ] normalize response for user details
-- [ ] render user details and deals info
+  - [ ] add caching to non-model requests
+  - [ ] fetch activity data
+  - [ ] process deals data
