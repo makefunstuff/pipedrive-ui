@@ -24,7 +24,6 @@
 
 * progress 90% done
 
-### TODO
-  - [ ] add caching to non-model requests
-  - [ ] fetch activity data
-  - [ ] process deals data
+### FYI
+
+* Responsive is not implemented

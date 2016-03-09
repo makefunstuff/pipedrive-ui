@@ -4,6 +4,7 @@ import del from 'del';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import minifyCSS from 'gulp-minify-css';
+import htmlmin from 'gulp-htmlmin';
 import gulpSequence from 'gulp-sequence';
 import { SOURCE, DESTINATION, STYLES } from './settings';
 
@@ -53,6 +54,7 @@ gulp.task('jade', () => {
   .pipe($.jade({
     pretty: true,
   }))
+  .pipe(isProduction ? htmlmin({collapseWhitespace: true}) : $.util.noop())
   .pipe(gulp.dest(`${DESTINATION}`))
 });
 

@@ -2,10 +2,12 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import Backbone from 'backbone';
-import { getActivityCount, getDealsByPerson, getActivity } from './utils/api';
+import { getActivityCount, getActivity } from './utils/api';
 import Persons from './collections/persons';
+import Deals from './collections/deals';
 import { PIPEDRIVE_API_TOKEN } from '../../settings';
 import Person from './models/person';
+import Activity from './models/activity';
 import PersonsView from './views/persons-view';
 import PersonDetailsView from './views/person-details-view';
 import moment from 'moment';
@@ -40,40 +42,34 @@ export default Backbone.Router.extend({
     const $app = $('body');
     const $container = $('#person_details_container');
     const person = new Person({id: id});
+    var deals = new Deals({personId: id});
 
     this._renderPersonsList(id)
     $container.empty();
     $app.addClass('loading');
 
     person.fetch({cache: true})
-      // TODO: dry and refactor to models where it is needed
       .then(() => {
-        const activityId = person.attributes.next_activity_id;
-        if (!!activityId) return getActivity(activityId)
-        return false
-      })
-      .then((activity) => {
-        if (!activity) return
+        let activities = [];
+        const nextActivityId = person.attributes.next_activity_id;
+        const lastActitityId = person.attributes.last_activity_id;
 
-        const { type, update_time } = activity.data;
-        person.set('nextActivity', `${_.capitalize(type)}, ${moment(update_time).fromNow()}`);
-      })
-      .then(() => {
-        const activityId = person.attributes.last_activity_id;
-        if (!!activityId) return getActivity(activityId)
-        return false
-      })
-      .then((activity) => {
-        if (!activity) return
+        !!nextActivityId && activities.push(new Activity({id: nextActivityId}).fetch({cache: true}));
+        !!lastActitityId && activities.push(new Activity({id: lastActitityId}).fetch({cache: true}));
 
-        const { type, update_time } = activity.data;
-        person.set('lastActivity', `${_.capitalize(type)}, ${moment(update_time).fromNow()}`);
+        if (_.isEmpty(activities)) return
+
+        return $.when(...activities);
+      })
+      .then((next, last) => {
+        !!next && !!next.toJSON && person.set('nextActivity', next.toJSON().value);
+        !!last && !!last.toJSON && person.set('lastActivity', last.toJSON().value);
       })
       .then(() => {
-        return getDealsByPerson(person.get("id"));
+        return deals.fetch({cache: true});
       })
-      .then((response) => {
-        person.set("deals", _.isNull(response.data) ? [] : response.data);
+      .then((deals) => {
+        person.set("deals", deals.toJSON());
       })
       .then(() => {
         $app.removeClass('loading');

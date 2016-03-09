@@ -51,9 +51,10 @@ class Person extends Backbone.Model {
     const { name, org_name, nextActivity, lastActivity } = attrs;
     let { largestDeal, smallestDeal } = attrs;
 
+    // TODO: refactor!
     if (dealsCount > 0) {
       let largeDeal = _.maxBy(deals, 'value');
-      let smallDeal = _.minBy(deals, 'value');
+      let smallDeal = dealsCount == 1 ? largeDeal : _.minBy(deals, 'value');
 
       largestDeal = {
         name: largeDeal.title,
@@ -65,8 +66,6 @@ class Person extends Backbone.Model {
         value: largeDeal.formatted_value
       };
     }
-
-
 
     return {
       name,
