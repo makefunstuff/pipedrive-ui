@@ -50,14 +50,13 @@ export default Backbone.Router.extend({
 
     person.fetch({cache: true})
       .then(() => {
-        let activities = [];
-        const nextActivityId = person.attributes.next_activity_id;
-        const lastActitityId = person.attributes.last_activity_id;
+        const { next_activity_id, last_activity_id } = person.attributes;
+        
+        const activities = [next_activity_id, last_activity_id]
+          .filter((id) => !!id)
+          .map((id) => new Activity({id: id}).fetch({cache: true}));
 
-        !!nextActivityId && activities.push(new Activity({id: nextActivityId}).fetch({cache: true}));
-        !!lastActitityId && activities.push(new Activity({id: lastActitityId}).fetch({cache: true}));
-
-        if (_.isEmpty(activities)) return
+        if (_.isEmpty(activities)) return;
 
         return $.when(...activities);
       })
@@ -65,12 +64,8 @@ export default Backbone.Router.extend({
         !!next && !!next.toJSON && person.set('nextActivity', next.toJSON().value);
         !!last && !!last.toJSON && person.set('lastActivity', last.toJSON().value);
       })
-      .then(() => {
-        return deals.fetch({cache: true});
-      })
-      .then((deals) => {
-        person.set("deals", deals.toJSON());
-      })
+      .then(() => deals.fetch({cache: true}))
+      .then((deals) => { person.set("deals", deals.toJSON()) })
       .then(() => {
         $app.removeClass('loading');
         $container.empty();
