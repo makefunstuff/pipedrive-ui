@@ -18,7 +18,7 @@
 * visit `http://localhost:8080`
 
 ### Status: DONE
-![stats preview](https://d1ro8r1rbfn3jf.cloudfront.net/ms_53232/z550Cc9eH38eK9b0BCXaphliYxD37d/pipedrive-ui%2B%25C2%25B7%2BWakaTime%2B2016-03-09%2B15-59-48.png?Expires=1457618400&Signature=PzVFBiLyLCehaCse5Po5pIUaj82AUcWA7i-sLCvrQ2TwriJzurTQqhmrEhdDiNcJ80TmGlL7fkJ7leAScePzhBUSpx84Iz3ygQG2XQksCwJH6yWzLIO1hQUcbCdmpQ8NIrg9FIFqLu0CrSya3AM03qAaaNe30WAUqVZ6rwC1E3cu-u5e9E2dTo0ld7omuGP8KRCyCkQDznJ3tSblTHjy041tfU-PX7xeCocwvau80S4lbMwk8eNMNzJTEiDpwjQVT6iXf3GDKB4fFesOJWvL0nu9-l5-3pJpHKdNmYUr3uIB02U2d9-56bfJA3o3dHPJdvWYBqNXUdhxZV2g2kbzrw__&Key-Pair-Id=APKAJHEJJBIZWFB73RSA)
+![stats preview](https://api.monosnap.com/rpc/file/download?id=7Y3BqjLj594MyOfUSndC1qIWJrcZ3U)
 
 * [current stats](https://wakatime.com/@strangeworks/projects/qdqkvuoaos?start=2016-03-03&end=2016-03-09)
 
