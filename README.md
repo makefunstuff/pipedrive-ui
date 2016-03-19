@@ -1,6 +1,6 @@
 ## pipedrive-ui - frontend developer test task implementation
 
-![preview](https://d1ro8r1rbfn3jf.cloudfront.net/ms_53232/HlS6kf0WAt27McHxiIwlHhY0srB8lr/Pipedrive%2B2016-03-07%2B22-36-41.png?Expires=1457469409&Signature=jw9vhbm4aCwrb3Hh40V3usutGExrQxOzgJVe~6hHpKUg9tupbeZFp0sgllvHNtRrnV3BzAbMH6Sq~~TXkp0wnm-LclcJJFR9pNSzLcRKswrvGqiiCQNjUEhjOCVnO~nJw~-jcaheiIJvwN3X5cQ1EYxg6ih5kvMpCwoFNpR7JDwMBquzfq~gZ6LPYlThi7y1psPaoTbOxgWaDczsurM-CWN14rZPMPZzatNghDB7LTqy9CH5kr34fgymiyyGUVpLcUlvX0vF8mpOEgcRzQl1yZJT2PTsbegS8fjjdg0g41x~k6fMpXrSoFYRI4-K1X~uML-Omvzbp~zbdhBhoVhBzg__&Key-Pair-Id=APKAJHEJJBIZWFB73RSA)
+![preview](https://api.monosnap.com/rpc/file/download?id=VT8lIn7nTwLiIVXRMY1WAn1B2XVlKA)
 
 ### Tech stack used
 
